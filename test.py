@@ -1,0 +1,1 @@
+print(" **A-Maze-ing** is a Python-based maze generator that creates, solves, and exports mazes from a configuration file. The project uses terminal ASCII rendering to visually display the maze, entry/exit points, and solution path without requiring graphical libraries.")

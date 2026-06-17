@@ -8,6 +8,9 @@ class Cell:
     south: bool = True
     west: bool = True
 
+    visited : bool = False
+    locked_42 : bool = False
+
     @property
     def hex_value(self) -> str:
         value = (

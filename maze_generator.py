@@ -2,7 +2,6 @@ from position import Position
 from maze import Maze
 import random
 
-
 class MazeGenerator:
     
     def _get_not_visited_neighbors(

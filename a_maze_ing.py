@@ -22,7 +22,7 @@ def main() -> int:
             entry=Position(*config.entry),
             exit=Position(*config.exit),
         )
-        print(config)
+        # print(config)
     except (OSError, ValueError) as e:
         print(f"Error: {e}", file=sys.stderr)
         return 1
@@ -34,8 +34,7 @@ def main() -> int:
 
     writer.write_maze(
     maze,
-    config.output_file,
-)
+    config.output_file,)
 
     renderer = Renderer()
     renderer.render(maze)

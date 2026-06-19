@@ -1,6 +1,6 @@
 from cell import Cell
 from position import Position
-
+from direction import Direction
 
 class Maze:
     PATTERN_42: tuple[str, ...] = (
@@ -69,16 +69,14 @@ class Maze:
 
         neighbors: list[Position] = []
 
-        adjust_position = [
-            (-1, 0),
-            (1, 0),
-            (0, -1),
-            (0, 1)
-        ]
-        for adjust_row, adjust_col in adjust_position:
-            new_row = position.row + adjust_row
-            new_col = position.col + adjust_col
-            new_neighbor = Position(new_row, new_col)
+        # adjust_position = [
+        #     (-1, 0),
+        #     (1, 0),
+        #     (0, -1),
+        #     (0, 1)
+        # ]
+        for direction in Direction:
+            new_neighbor = position.move(direction)
             if self.valid_cell(new_neighbor):
                 neighbors.append(new_neighbor)
 

@@ -1,6 +1,9 @@
 from position import Position
 from maze import Maze
 import random
+import sys
+
+sys.setrecursionlimit(20000)
 
 class MazeGenerator:
     
@@ -13,7 +16,7 @@ class MazeGenerator:
 
         for neighbor in maze.get_neighbors(position):
             cell = maze.get_cell(neighbor)
-            if not cell.visited and not cell.locked_42:
+            if not cell.visited:
                 neighbors.append(neighbor)
         return neighbors
     
@@ -31,7 +34,11 @@ class MazeGenerator:
             position,
         )
 
+        # print(position, [str(n) for n in neighbors],)
+
         random.shuffle(neighbors)
+
+        # print("after:", [str(n) for n in neighbors],)
 
         for neighbor in neighbors:
 

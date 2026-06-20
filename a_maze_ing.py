@@ -6,6 +6,7 @@ from renderer import Renderer
 from position import Position
 from maze_generator import MazeGenerator
 from maze_writer import MazeWriter
+from maze_solver import MazeSolver
 
 
 def main() -> int:
@@ -19,6 +20,7 @@ def main() -> int:
         maze = Maze(
             config.height,
             config.width,
+            config.pattern,
             entry=Position(*config.entry),
             exit=Position(*config.exit),
         )
@@ -29,17 +31,29 @@ def main() -> int:
 
     generator = MazeGenerator()
     generator.generate(maze)
+    
+    renderer = Renderer()
+    # renderer.render(maze)
 
+    solver = MazeSolver()
+    path = solver.solve(maze)
     writer = MazeWriter()
 
     writer.write_maze(
     maze,
+    path,
     config.output_file,)
+    renderer.render(maze, path,)
 
-    renderer = Renderer()
-    renderer.render(maze)
+
     return 0
 
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+
+
+
+
+# stty size -- to check bash... col row for terminals

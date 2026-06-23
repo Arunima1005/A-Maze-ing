@@ -3,7 +3,10 @@ from position import Position
 from direction import Direction
 
 class Maze:
-    PATTERNS = {"42": (
+    """A grid maze with an untouchable, locked pattern."""
+
+    PATTERNS = {
+    "42": (
         "# # ###",
         "# #   #",
         "### ###",
@@ -75,6 +78,7 @@ class Maze:
     def remove_wall(self,
                     current: Position,
                     neighbor: Position) -> None:
+        """Open the shared wall between two adjacent cells."""
         current_cell = self.grid[current.row][current.col]
         neighbor_cell = self.grid[neighbor.row][neighbor.col]
 
@@ -95,6 +99,7 @@ class Maze:
             neighbor_cell.north = False
 
     def get_neighbors(self, position: Position) -> list[Position]:
+        """Return adjacent cells that are not part of the locked pattern."""
 
         neighbors: list[Position] = []
 
@@ -114,6 +119,7 @@ class Maze:
     def get_reachable_neighbors(
     self,
     position: Position,) -> list[Position]:
+        """Return adjacent unlocked cells connected by an open wall."""
         neighbors: list[Position] = []
 
         cell = self.get_cell(position)
@@ -161,12 +167,14 @@ class Maze:
         return neighbors
 
     def reset_visited(self) -> None:
+        """Clear traversal state so the maze can be explored again."""
 
         for row in self.grid:
             for cell in row:
                 cell.visited = False
         
     def _lock_42_pattern(self) -> None:
+        """Place the selected pattern at the centre of the maze."""
         pattern_height = len(self.pattern)
         pattern_width = max(len(row) for row in self.pattern)
 

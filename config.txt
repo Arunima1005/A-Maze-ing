@@ -1,14 +1,15 @@
 # Default A-Maze-ing configuration
-WIDTH =10
-HEIGHT=10
-ENTRY=1,1
-EXIT=8,5
+WIDTH=30
+HEIGHT=30
+ENTRY=5,10
+EXIT=18,25
 OUTPUT_FILE=maze.txt
-PERFECT=True
+PERFECT=False
+# Optional: 42, X, Box
 PATTERN=42
 # Optional: use the same integer seed to recreate exactly the same maze.
 # Omit this setting for a new random maze each run.
-SEED=42
+SEED=
 # Available colours: BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE, DEFAULT
 # WALL_COLOR=BLACK
 # PATH_COLOR=GREEN

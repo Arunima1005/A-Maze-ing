@@ -2,6 +2,8 @@
 
 # A-Maze-ing
 
+![A-Maze-ing demo: solving a maze, generating a new one, changing colours](docs/demo.gif)
+
 ## Description
 
 A-Maze-ing is a Python 3 maze generator for the 42 curriculum. It reads a plain
